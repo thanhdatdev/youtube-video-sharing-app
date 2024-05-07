@@ -1,0 +1,73 @@
+<head>
+  <style>
+
+
+      #Share video form
+      .share-form {
+          max-width: 400px;
+          margin: 20px auto;
+          padding: 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+
+      .share-form input[type="text"] {
+          width: calc(100% - 75px);
+          padding: 10px;
+          margin-bottom: 10px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
+      }
+
+      .share-form button {
+          width: 100%;
+          padding: 10px;
+          background-color: #4CAF50;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+      }
+
+      .share-form button:hover {
+          background-color: #45a049;
+      }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="header-left">
+      <img class="header-logo" src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <h1> Funny Movies </h1>
+    </div>
+    <div class="header-right">
+      <input type="text" placeholder="Username">
+      <input type="password" placeholder="Password">
+      <button>Login/Register</button>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="movie-details">
+      <h2>Movie Title</h2>
+      <p>Shared by: User123</p>
+      <div class="like-dislike">
+          <button class="active">Like</button>
+          <button>Dislike</button>
+      </div>
+      <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in justo fermentum, vitae vestibulum nunc volutpat.</p>
+    </div>
+
+  </main>
+
+  <%# <form class="share-form" action="#"> %>
+  <%#     <input type="text" id="youtube-url" placeholder="Enter YouTube URL" required> %>
+  <%#     <button type="submit">Share</button> %>
+  <%#   </form> %>
+
+</body>

@@ -13,3 +13,93 @@
  *= require_tree .
  *= require_self
  */
+
+  .body {
+    padding: 0 2rem 0 5rem;
+  }
+
+  .header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid black;
+  }
+
+  .header-left {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .header-right {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .header-left {
+    gap: 5px;
+  }
+
+  .header-logo {
+    width: 25px;
+    height: 25px;
+  }
+
+  .header-right button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .header-right button:hover {
+    background-color: #45a049;
+  }
+
+ .header-right input[type="text"], .header-right input[type="password"] {
+    margin-right: 5px;
+    padding: 7px 3px;
+  }
+
+  /* Main */
+
+  .main {
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    text-align: center;
+    margin-top: 20px;
+    gap: 10px;
+    padding: 0 40px;
+    height: 295px;
+  }
+
+  .video-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .movie-details {
+    max-width: 800px;
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    min-height: 100%;
+  }
+
+  .movie-details h2 {
+    margin-top: 0;
+  }
+
+  .movie-details p {
+    margin-top: 5p
+  }
+
+  .active {
+    color: white;
+    background-color: #45a049;
+  }
