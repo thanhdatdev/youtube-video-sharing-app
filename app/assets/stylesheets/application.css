@@ -18,6 +18,7 @@
     padding: 0 2rem 0 5rem;
   }
 
+  /* Header */
   .header{
     display: flex;
     justify-content: space-between;
@@ -46,7 +47,7 @@
     height: 25px;
   }
 
-  .header-right button {
+  .signup-button {
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
@@ -55,17 +56,16 @@
     cursor: pointer;
   }
 
-  .header-right button:hover {
+  .signup-button:hover {
     background-color: #45a049;
   }
 
- .header-right input[type="text"], .header-right input[type="password"] {
+ .header-right input[type="email"], .header-right input[type="password"] {
     margin-right: 5px;
     padding: 7px 3px;
   }
 
   /* Main */
-
   .main {
     display: flex;
     align-items: start;
@@ -101,5 +101,36 @@
 
   .active {
     color: white;
+    background-color: #45a049;
+  }
+
+  /* Share video form */
+  .share-form {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .share-form input[type="text"] {
+    width: calc(100% - 75px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .share-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .share-form button:hover {
     background-color: #45a049;
   }

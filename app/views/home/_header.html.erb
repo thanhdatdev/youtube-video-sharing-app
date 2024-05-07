@@ -1,7 +1,19 @@
-<div class="header">
-  <div class="logo">
-    <img />
+<header class="header">
+  <div class="header-left">
+    <img class="header-logo" src="https://images.unsplash.com/photo-1594909122845-11baa439b7bf?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+    <h1> Funny Movies </h1>
   </div>
-
-  Neotree
-</div>
+  <div class="header-right">
+    <% if user_signed_in? %>
+      <p>Welcome, <%= current_user.email %></p>
+      <%= link_to "Share a movie", movies_path, class: "btn btn-primary" %>
+      <%= link_to 'Logout', logout_path(@user), class: "btn btn-danger", data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'} %>
+    <% else %>
+      <%= form_for(@user, url: signup_path) do |f| %>
+        <%= f.email_field :email, autofocus: true, placeholder: 'Email' %>
+        <%= f.password_field :password, placeholder: 'Password' %>
+        <%= f.submit "Login / Register", class: "signup-button" %>
+      <% end %>
+    <% end %>
+  </div>
+</header>

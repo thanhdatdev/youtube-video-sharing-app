@@ -4,4 +4,9 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "home#index"
+
+  post 'signup', to: "home#create"
+  delete 'logout', to: "home#destroy"
+
+  resources 'movies'
 end
