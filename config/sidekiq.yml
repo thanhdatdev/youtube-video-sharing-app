@@ -1,0 +1,14 @@
+:concurrency: 20
+
+:queues:
+  - critical
+  - mailers
+  - default
+  - low
+
+development:
+  :concurrency: 10
+test:
+  :concurrency: 10
+production:
+  :concurrency: 10
