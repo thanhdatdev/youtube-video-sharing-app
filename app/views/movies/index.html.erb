@@ -1,4 +1,4 @@
-<%= form_for(@movie, url: new_movie_path, class: "share-form") do |f| %>
+<%= form_for(@movie, url: movies_path, class: "share-form") do |f| %>
   <%= f.text_field  :url, autofocus: true, placeholder: 'Youtube URL' %>
-  <%= f.submit "Login / Register", class: "share-movie-button" %>
+  <%= f.submit "Share", class: "share-movie-button" %>
 <% end %>

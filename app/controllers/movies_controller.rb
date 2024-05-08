@@ -4,32 +4,35 @@ class MoviesController < ApplicationController
   end
 
   def create
-    @movie = movie.find_by(email: movie_params[:email])
+    params = movie_params
 
-    if @movie && @movie.valid_password?(movie_params[:password])
-      sign_in(@movie)
-      redirect_to root_path, notice: 'Sign in successful!'
-    else
-      @movie = movie.new(movie_params)
-
-      if @movie.save
-        sign_in(@movie)
-        redirect_to root_path, notice: 'Sign up successful!'
-      else
-        flash.now[:alert] = 'Invalid email or password. Failed to register.'
-        render :index
-      end
+    if params[:url].blank?
+      redirect_to movies_path, alert: 'URL cannot be blank!'
+      return
     end
-  end
 
-  def destroy
-    sign_out(current_movie)
-    redirect_to root_path, notice: 'Logged out successfully.'
+    params[:url] = embed_youtube_video(params[:url])
+
+    @movie = current_user.movies.new(params)
+
+    if @movie.save!
+      ActionCable.server.broadcast('notifications', { user_id: current_user.id, user_email: current_user.email, title: 'Movie Title' })
+      redirect_to root_path, notice: 'Sharing successful!'
+    else
+      flash.now[:alert] = 'Sharing unsuccessful!'
+      render :index
+    end
   end
 
   private
 
   def movie_params
     params.require(:movie).permit(:url)
+  end
+
+  def embed_youtube_video(url)
+    video_id = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?feature=player_embedded&v=))([\w-]{11})/)[1]
+    embedded_url = "https://www.youtube.com/embed/#{video_id}"
+    return embedded_url
   end
 end

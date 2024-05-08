@@ -2,7 +2,7 @@
 FROM ruby:3.2.2
 
 # Set environment variables
-ENV RAILS_ENV=production
+# ENV RAILS_ENV=production
 ENV RAILS_LOG_TO_STDOUT=true
 
 # Install dependencies
