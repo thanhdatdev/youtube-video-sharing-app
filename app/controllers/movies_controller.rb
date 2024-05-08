@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     @movie = current_user.movies.new(params)
 
     if @movie.save!
-      ActionCable.server.broadcast('notifications', { user_id: current_user.id, user_email: current_user.email, title: 'Movie Title' })
+      ActionCable.server.broadcast('notifications', { title: 'Movie Title', user_email: current_user.email })
       redirect_to root_path, notice: 'Sharing successful!'
     else
       flash.now[:alert] = 'Sharing unsuccessful!'
