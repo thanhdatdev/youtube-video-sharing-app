@@ -1,4 +1,4 @@
-<form class="share-form" action="#">
-  <input type="text" id="youtube-url" placeholder="Enter YouTube URL" required>
-  <button type="submit">Share</button>
-</form>
+<%= form_for(@movie, url: new_movie_path, class: "share-form") do |f| %>
+  <%= f.text_field  :url, autofocus: true, placeholder: 'Youtube URL' %>
+  <%= f.submit "Login / Register", class: "share-movie-button" %>
+<% end %>
