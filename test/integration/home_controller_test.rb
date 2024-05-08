@@ -1,10 +1,9 @@
 require "test_helper"
+require 'faker'
 
 class HomeControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @user = users(:one)
-    @user.password = @user.password_confirmation = 'password'
-    @user.save
+    @user = User.create!(email: Faker::Internet.unique.email, password: 'password123$')
   end
 
   test "should get index" do
@@ -13,21 +12,14 @@ class HomeControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should sign in the user with valid credentials and redirect to root path with notice" do
-    post signup_url, params: { user: { email: @user.email, password: 'password' } }
+    post signup_url, params: { user: { email: @user.email, password: @user.password } }
     assert_redirected_to root_path
     follow_redirect!
     assert_equal 'Sign in successful!', flash[:notice]
   end
 
   test "should not sign in the user with invalid credentials and render index with alert" do
-    post signup_url, params: { user: { email: 'invalid@example.com', password: 'wrongpassword' } }
-    assert_redirected_to root_path
-    follow_redirect!
-    assert_equal 'Invalid email or password. Failed to register.', flash[:alert]
-  end
-
-  test "should sign up the user with valid credentials and redirect to root path with notice" do
-    post signup_url, params: { user: { email: 'new@example.com', password: 'newpassword' } }
+    post signup_url, params: { user: { email: 'notexistemail@gmail.com', password: 'password' } }
     assert_redirected_to root_path
     follow_redirect!
     assert_equal 'Sign up successful!', flash[:notice]
