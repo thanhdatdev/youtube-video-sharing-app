@@ -17,11 +17,11 @@ COPY Gemfile Gemfile.lock ./
 # Install gems
 RUN bundle install --jobs $(nproc) --retry 5
 
-# Copy the rest of the application code to the container
-COPY . .
-
 # Precompile assets
 RUN bundle exec rails assets:precompile
+
+# Copy the rest of the application code to the container
+COPY . .
 
 # Expose port 3000 to the host
 EXPOSE 3000
