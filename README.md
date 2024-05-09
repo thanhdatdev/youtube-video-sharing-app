@@ -26,15 +26,18 @@ Welcome to our YouTube Video Sharing App, a platform designed to simplify the pr
 
 ### For Docker
 
-1.
+1. Install the Docker(`https://docs.docker.com/get-docker/`)
 
 ## Installation & Configuration
 
 ### For manually
 
-Provide step-by-step instructions for how to clone your repository, install dependencies, and configure settings.
+1. Change the name `application.example.yml` (in `config` folder) to `application.yml`
+2. Run `bundle install`
 
 ### For Docker
+
+1. To the best performance, please setting the Docker with 2 CPU, 4G RAM
 
 ## Database Setup
 
@@ -44,10 +47,12 @@ Provide step-by-step instructions for how to clone your repository, install depe
 
 ### For Docker
 
+1. `docker compose up -d` (use `sudo` if your system requires the permission)
+
 ## Running the Application
 
 Explain how to start the development server, access the application in a web browser, and run the test suite.
 
-## Usage
+## Deployment
 
-Provide a brief guide outlining how to use the application, including any specific features or functionality the reviewer should be aware of.
+`cap production deploy`
