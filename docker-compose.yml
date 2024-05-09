@@ -13,9 +13,11 @@ services:
       - .:/app:cached
     depends_on:
       - db
+    restart: always
   redis:
     image: redis:6.2
     command: redis-server
+    restart: always
   sidekiq:
     depends_on:
       - 'db'
@@ -26,6 +28,7 @@ services:
     command: sidekiq -C config/sidekiq.yml
     volumes:
       - .:/app:cached
+    restart: always
   db:
     image: postgres:14.11
     volumes:
