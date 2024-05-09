@@ -17,37 +17,17 @@ Welcome to our YouTube Video Sharing App, a platform designed to simplify the pr
 
 ## Prerequisites
 
-### For manually
-
-1. Install Ruby with version 3.2.2 (`Recommend use asdf (https://asdf-vm.com/guide/getting-started.html)`)
-2. Install Bundler with version 2.4.10 (`gem install bundler -v 2.4.10`)
-3. Install Redis (`https://redis.io/docs/latest/operate/oss_and_stack/install/install-redis/`)
-4. Install Postgresql with version 14.11 (`https://www.postgresql.org/download`)
-
-### For Docker
-
 1. Install the Docker(`https://docs.docker.com/get-docker/`)
+To the best performance, please setting the Docker with 2 CPU, 4G RAM
 
 ## Installation & Configuration
 
-### For manually
-
 1. Change the name `application.example.yml` (in `config` folder) to `application.yml`
-2. Run `bundle install`
-
-### For Docker
-
-1. To the best performance, please setting the Docker with 2 CPU, 4G RAM
+2. Run `docker compose up --build`
 
 ## Database Setup
-
-### For manually
-
-1. `rake db:create` and `rake db:migrate`
-
-### For Docker
-
-1. `docker compose up -d` (use `sudo` if your system requires the permission)
+1. `docker compose run web rake db:create`
+2. `docker compose run web rake db:migrate`
 
 ## Running the Application
 
