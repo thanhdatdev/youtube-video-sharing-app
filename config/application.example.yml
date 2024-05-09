@@ -1,22 +1,14 @@
 WEBSOCKET_HOST: 'ws://localhost:3000/cable'
-REDIS_SIDEKIQ_URL: 'redis://redis:6379/0'
-REDIS_WEB_URL: 'redis://redis:6379/1'
-DB_PASSWORD: 'password'
+
+DB_HOST: 'db'
+DB_USERNAME: 'postgres'
+DB_PASSWORD: 'postgres'
 
 development:
-  DB_HOST: 'db'
-  BASE_URL: 'localhost:3000'
-  DB_USERNAME: 'user'
   DB_NAME: 'youtube_video_sharing_app_development'
+  REDIS_SIDEKIQ_URL: 'redis://redis:6379/0'
 
 test:
-  DB_HOST: 'db'
   BASE_URL: 'localhost:3000'
-  DB_USERNAME: 'user'
   DB_NAME: 'youtube_video_sharing_app_test'
-
-production:
-  SECRET_KEY_BASE: '229583f71db386f33be1afc6f7e56e1b'
-  DB_USERNAME: 'username'
-  DB_NAME: 'youtube_video_sharing_app_production'
-  BASE_URL: "ec2-18-141-12-245.ap-southeast-1.compute.amazonaws.com"
+  REDIS_SIDEKIQ_URL: 'redis://redis:6379/0'

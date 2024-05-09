@@ -16,7 +16,7 @@ class MoviesController < ApplicationController
     @movie = current_user.movies.new(params)
 
     if @movie.save!
-      ActionCable.server.broadcast('notifications', { title: 'Movie Title', user_email: current_user.email })
+      ActionCable.server.broadcast('notifications', { movie_url: @movie.url, title: 'Movie Title', user_email: current_user.email })
       redirect_to root_path, notice: 'Sharing successful!'
     else
       flash.now[:alert] = 'Sharing unsuccessful!'
@@ -32,7 +32,6 @@ class MoviesController < ApplicationController
 
   def embed_youtube_video(url)
     video_id = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?feature=player_embedded&v=))([\w-]{11})/)[1]
-    embedded_url = "https://www.youtube.com/embed/#{video_id}"
-    return embedded_url
+    "https://www.youtube.com/embed/#{video_id}"
   end
 end

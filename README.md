@@ -17,8 +17,7 @@ Welcome to our YouTube Video Sharing App, a platform designed to simplify the pr
 
 ## Prerequisites
 
-1. Install the Docker(`https://docs.docker.com/get-docker/`)
-To the best performance, please setting the Docker with 2 CPU, 4G RAM
+1. Install the Docker(`https://docs.docker.com/get-docker/`). To the best performance, please setting the Docker with 2 CPU, 4G RAM
 
 ## Installation & Configuration
 
@@ -30,9 +29,11 @@ To the best performance, please setting the Docker with 2 CPU, 4G RAM
 2. `docker compose run web rake db:migrate`
 
 ## Running the Application
+1. Access `localhost:3000`
+2. Account example `admin@gmail.com` - `abcd1234!`
+## Test
 
-Explain how to start the development server, access the application in a web browser, and run the test suite.
-
+`rake test`
 ## Deployment
 
-`cap production deploy`
+`mina deploy`

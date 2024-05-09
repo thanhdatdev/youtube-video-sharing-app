@@ -15,7 +15,7 @@ class NotificationChannelTest < ActionCable::Channel::TestCase
   end
 
   test 'broadcasts new video' do
-    ActionCable.server.broadcast('notifications', { title: 'New Video', user_email: @user.email })
+    ActionCable.server.broadcast('notifications', { movie_url: Movie.last.url, title: 'New Video', user_email: @user.email })
 
     assert_broadcast_on('notifications', title: 'New Video', user_email: @user.email)
   end

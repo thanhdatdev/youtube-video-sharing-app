@@ -1,15 +1,15 @@
 development:
   adapter: redis
-  url: <%= ENV['REDIS_WEB_URL'] %>
+  url: <%= ENV['REDIS_SIDEKIQ_URL'] %>
 
 test:
   adapter: redis
-  url: <%= ENV['REDIS_WEB_URL'] %>
+  url: <%= ENV['REDIS_SIDEKIQ_URL'] %>
 
 staging:
   adapter: redis
-  url: <%= ENV['REDIS_WEB_URL'] %>
+  url: <%= ENV['REDIS_SIDEKIQ_URL'] %>
 
 production:
   adapter: redis
-  url: <%= ENV['REDIS_WEB_URL'] %>
+  url: <%= ENV['REDIS_SIDEKIQ_URL'] %>
