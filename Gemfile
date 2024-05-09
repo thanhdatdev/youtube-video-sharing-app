@@ -76,3 +76,6 @@ gem "devise"
 gem "figaro"
 gem "sidekiq"
 gem "redis-rails"
+
+# For deployment
+gem "mina"
