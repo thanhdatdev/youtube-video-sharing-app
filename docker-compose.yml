@@ -14,10 +14,22 @@ services:
     depends_on:
       - db
       - redis
+      - sidekiq
     restart: always
   redis:
     image: redis:6.2
     command: redis-server
+    restart: always
+  sidekiq:
+    depends_on:
+      - 'db'
+      - 'redis'
+    environment:
+      REDIS_URL: "redis://redis:6379/1"
+    build: .
+    command: sidekiq -C config/sidekiq.yml
+    volumes:
+      - .:/app:cached
     restart: always
   db:
     image: postgres:14.11
