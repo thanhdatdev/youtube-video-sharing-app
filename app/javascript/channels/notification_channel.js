@@ -13,6 +13,9 @@ consumer.subscriptions.create("NotificationChannel", {
 
   received(data) {
     const videoHtml = `
+      <div class="notifications">
+        <p>${data.user_email} shared new video with title: ${data.title}</p>
+      </div>
       <main class="main">
         <div class="video-container">
           <iframe width="560" height="315" src="${data.movie_url}" frameborder="0" allowfullscreen></iframe>
@@ -32,23 +35,5 @@ consumer.subscriptions.create("NotificationChannel", {
 
     const mainContainer = document.querySelector(".main-container");
     mainContainer.insertAdjacentHTML("afterbegin", videoHtml);
-
-    const modal = document.getElementById("new-video-modal");
-    const modalVideoInfo = document.getElementById("modal-video-info");
-    modalVideoInfo.textContent = `New video shared by ${userEmail}: ${title}`;
-    modal.style.display = "block";
-
-    // Close modal when close button is clicked
-    const closeModal = document.querySelector(".modal .close");
-    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
-    });
-
-    // Close modal when clicking outside of it
-    window.addEventListener("click", (event) => {
-      if (event.target === modal) {
-        modal.style.display = "none";
-      }
-    });
   },
 });
