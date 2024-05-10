@@ -93,6 +93,7 @@ Rails.application.configure do
 
   config.action_cable.url = "#{ENV['WEBSOCKET_HOST']}"
   config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
+  config.secret_key_base = ENV["SECRET_KEY_BASE"]
   config.active_record.cache_versioning = false
   config.serve_static_files = true
 end
