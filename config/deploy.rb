@@ -15,10 +15,10 @@ set :branch, 'main'
 set :repository, 'git@github.com:thanhdatdev/youtube-video-sharing-app.git'
 
 # Set shared directories
-set :shared_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads', 'config']
+set :shared_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads']
 
 # Set shared files
-set :shared_files, ['config/application.yml']
+set :shared_files, ['config/application.yml', 'config/master.key']
 
 # Remote environment task
 task :remote_environment do
@@ -32,12 +32,11 @@ task :deploy => :remote_environment do
   deploy do
     # Ensure we are in the correct directory
     invoke :'git:clone'
-    # invoke :'deploy:link_shared_paths'
+    invoke :'deploy:link_shared_paths'
 
     on :launch do
 
       # Build and start the Docker containers
-      command "ln -s #{fetch(:deploy_to)}/shared/config/application.yml #{fetch(:deploy_to)}/current/config/application.yml"
       command 'docker compose build'
       command 'docker compose down'
       command 'docker compose up -d'
