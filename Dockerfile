@@ -4,7 +4,7 @@ FROM ruby:3.2.2
 # Set environment variables
 ENV RAILS_ENV=development
 ENV RAILS_LOG_TO_STDOUT=true
-RUN apt-get update -qq && apt-get install -y git-core build-essential libpq-dev nodejs && apt-get clean autoclean && rm -rf /var/lib/apt /var/lib/dpkg /var/lib/cache /var/lib/log
+# RUN apt-get update -qq && apt-get install -y git-core build-essential libpq-dev nodejs && apt-get clean autoclean && rm -rf /var/lib/apt /var/lib/dpkg /var/lib/cache /var/lib/log
 
 # Set working directory
 WORKDIR /app
