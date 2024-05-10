@@ -1,7 +1,7 @@
 WEBSOCKET_HOST: 'ws://localhost:3000/cable'
 DB_USERNAME: 'postgres'
 DB_PASSWORD: 'postgres'
-REDIS_SIDEKIQ_URL: 'redis://127.0.0.1:6379/0'
+REDIS_SIDEKIQ_URL: 'redis://redis:6379/0'
 
 development:
   DB_NAME: 'youtube_video_sharing_app_development'
