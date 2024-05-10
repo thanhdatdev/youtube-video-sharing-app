@@ -69,5 +69,5 @@ Rails.application.configure do
   config.action_cable.url = "#{ENV['WEBSOCKET_HOST']}"
   config.action_cable.disable_request_forgery_protection = true
   config.file_watcher = ActiveSupport::FileUpdateChecker
-  config.force_ssl = false
+  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/, /file:\/\/*/, 'file://', nil]
 end
