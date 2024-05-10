@@ -68,6 +68,7 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   config.action_cable.url = "#{ENV['WEBSOCKET_HOST']}"
   config.action_cable.disable_request_forgery_protection = true
+  config.action_cable.allowed_request_origins = [/http:\/\/*/, /https:\/\/*/]
   config.file_watcher = ActiveSupport::FileUpdateChecker
   config.force_ssl = false
 end
