@@ -30,7 +30,7 @@ task :deploy => :remote_environment do
 
     on :launch do
       # Pull the latest changes from the repository
-      # command 'git pull origin main'
+      command 'git pull origin main'
 
       # Build and start the Docker containers
       command 'docker compose build'
