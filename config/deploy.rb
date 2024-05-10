@@ -14,6 +14,12 @@ set :deploy_to, '/home/deploy/youtube-video-sharing-app'
 set :branch, 'main'
 set :repository, 'git@github.com:thanhdatdev/youtube-video-sharing-app.git'
 
+# Set shared directories
+set :shared_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads', 'config']
+
+# Set shared files
+set :shared_files, ['config/application.yml']
+
 # Remote environment task
 task :remote_environment do
   # No need to define anything here unless you have specific environment setup tasks
@@ -30,9 +36,10 @@ task :deploy => :remote_environment do
 
     on :launch do
       # Pull the latest changes from the repository
-      command 'git pull origin main'
+      # command 'git pull origin main'
 
       # Build and start the Docker containers
+      command "ln -s #{fetch(:deploy_to)}/shared/config/application.yml #{fetch(:deploy_to)}/current/config/application.yml"
       command 'docker compose build'
       command 'docker compose down'
       command 'docker compose up -d'
