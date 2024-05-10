@@ -18,7 +18,7 @@ set :repository, 'git@github.com:thanhdatdev/youtube-video-sharing-app.git'
 set :shared_dirs, ['log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'public/system', 'public/uploads']
 
 # Set shared files
-set :shared_files, ['config/application.yml', 'config/master.key']
+set :shared_files, ['config/application.yml']
 
 # Remote environment task
 task :remote_environment do
