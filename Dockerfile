@@ -4,8 +4,7 @@ FROM ruby:3.2.2
 # Set environment variables
 ENV RAILS_ENV=development
 ENV RAILS_LOG_TO_STDOUT=true
-
-# Install dependencies
+USER deploy
 RUN apt-get update -qq && apt-get install -y nodejs yarn
 
 # Set working directory
