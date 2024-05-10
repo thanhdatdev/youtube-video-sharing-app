@@ -11,5 +11,4 @@ task :deploy => :remote_environment do
   command %[docker compose down]
   command %[docker compose up -d]
   command %[docker system prune -f]
-  print("Deploy successful!")
 end
