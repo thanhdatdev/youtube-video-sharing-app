@@ -4,12 +4,13 @@
 
 Welcome to our YouTube Video Sharing App! Our platform allows users to easily share any YouTube video with others, fostering a community of shared interests and entertainment. Developed using Rails 7 and Ruby 3
 
-## Key Features
+## Key Features:
 
-- Effortless Sharing: Share your favorite YouTube videos with just a few clicks.
-- Community Engagement: Connect with others by discovering and enjoying videos shared by fellow users.
-- Modern Technology Stack: Built on Rails 7 and Ruby 3, leveraging the latest advancements in web development.
-- Streamlined Deployment: Deployed using mina and docker, ensuring smooth and efficient deployment processes.
+- **Effortless Sharing**: Share your favorite YouTube videos with just a few clicks.
+- **Community Engagement**: Connect with others by discovering and enjoying videos shared by fellow users.
+- **Modern Technology Stack**: Built on Rails 7 and Ruby 3, leveraging the latest advancements in web development.
+- **Scalable Infrastructure**: Utilizes nginx for high-performance web serving and load balancing.
+- **Secure HTTPS**: Secured with AWS and certbot for HTTPS encryption, ensuring user privacy and data integrity.
 
 ## Prerequisites
 
@@ -79,4 +80,13 @@ Welcome to our YouTube Video Sharing App! Our platform allows users to easily sh
 
 ## Troubleshooting
 
-1. If your `Postgresql` container default is `root` instead of `postgres`. You can try to access to container with command `docker exec -it <<postgres-container-id>> bash`, then execute command: `CREATE ROLE postgres WITH LOGIN SUPERUSER PASSWORD 'postgres';`
+If you encounter any issues while using our YouTube Video Sharing App, refer to the troubleshooting guide below for assistance.
+
+### Issue: Incorrect Postgresql User
+
+If your Postgresql container default user is set to `root` instead of `postgres`, it may cause authentication issues.
+
+#### Solution:
+
+1. Access the Postgresql container using the command: `docker exec -it <<postgres-container-id>> bash`
+2. Once inside the container, execute the following command to create a new user with the appropriate privileges: `CREATE ROLE postgres WITH LOGIN SUPERUSER PASSWORD 'postgres';`
