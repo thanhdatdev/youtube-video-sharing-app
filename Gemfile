@@ -72,6 +72,7 @@ group :test do
   gem 'faker'
 end
 
+gem 'rack-cors', '>= 1.1.0'
 gem "devise"
 gem "figaro"
 gem "sidekiq"
