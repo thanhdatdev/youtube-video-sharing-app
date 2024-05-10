@@ -3,7 +3,7 @@ FROM ruby:3.2.2
 
 # Set environment variables
 ENV RAILS_ENV=production
-ENV RAILS_MASTER_KEY=1234
+ENV RAILS_MASTER_KEY=229583f71db386f33be1afc6f7e56e1b
 ENV RAILS_LOG_TO_STDOUT=true
 RUN apt-get update -qq && apt-get install -y git-core build-essential libpq-dev nodejs && apt-get clean autoclean && rm -rf /var/lib/apt /var/lib/dpkg /var/lib/cache /var/lib/log
 
