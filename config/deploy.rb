@@ -35,8 +35,6 @@ task :deploy => :remote_environment do
     # invoke :'deploy:link_shared_paths'
 
     on :launch do
-      # Pull the latest changes from the repository
-      # command 'git pull origin main'
 
       # Build and start the Docker containers
       command "ln -s #{fetch(:deploy_to)}/shared/config/application.yml #{fetch(:deploy_to)}/current/config/application.yml"
