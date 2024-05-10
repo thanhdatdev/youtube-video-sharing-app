@@ -2,41 +2,19 @@ require 'mina/rails'
 require 'mina/git'
 require 'mina/logs'
 
-# Set your project name
-set :application_name, 'youtube-video-sharing-app'
 
 # Set your server information
 set :user, 'ubuntu'
 set :domain, '18.141.12.245'
-set :deploy_to, '/home/ubuntu/youtube-video-sharing-app'
-set :branch, 'main'
-set :repository, 'git@github.com:thanhdatdev/youtube-video-sharing-app.git'
-
-# Set shared files
-set :shared_files, ['config/application.yml']
-
-# Remote environment task
-task :remote_environment do
-  # No need to define anything here unless you have specific environment setup tasks
-  command %[mkdir -p "#{fetch(:deploy_to)}/releases"]
-  command %[mkdir -p "#{fetch(:deploy_to)}/shared"]
-end
 
 # Deployment task
 task :deploy => :remote_environment do
-  invoke :'git:clone'
-  invoke :'deploy:link_shared_paths'
+  command 'cd /home/ubuntu/youtube-video-sharing-app'
+  command 'git pull origin main'
+  command 'docker compose build'
+  command 'docker compose down'
+  command 'docker compose up -d'
 
-  on :launch do
-
-    # Build and start the Docker containers
-    command 'docker compose build'
-    command 'docker compose down'
-    command 'docker compose up -d'
-
-    # Clean up unused Docker resources
-    command 'docker system prune -f'
-  end
-
-  invoke :'deploy:cleanup'
+  # Clean up unused Docker resources
+  command 'docker system prune -f'
 end
