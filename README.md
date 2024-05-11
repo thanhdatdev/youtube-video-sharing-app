@@ -2,15 +2,16 @@
 
 ## Introduction
 
-Welcome to our YouTube Video Sharing App! Our platform allows users to easily share any YouTube video with others, fostering a community of shared interests and entertainment. Developed using Rails 7 and Ruby 3
+Welcome to our YouTube Video Sharing App! Our platform allows users to easily share any YouTube video with others, fostering a community of shared interests and entertainment.
 
 ## Key Features:
 
 - **Effortless Sharing**: Share your favorite YouTube videos with just a few clicks.
+- **Voting the Video You Like**: Engage with the community by voting for the videos you enjoy the most.
 - **Community Engagement**: Connect with others by discovering and enjoying videos shared by fellow users.
-- **Modern Technology Stack**: Built on Rails 7 and Ruby 3, leveraging the latest advancements in web development.
-- **Scalable Infrastructure**: Utilizes nginx for high-performance web serving and load balancing.
-- **Secure HTTPS**: Secured with AWS and certbot for HTTPS encryption, ensuring user privacy and data integrity.
+- **Modern Technology Stack**: Built on `Rails 7 and Ruby 3`, leveraging the latest advancements in web development.
+- **Scalable Infrastructure**: Utilizes `nginx` for high-performance web serving and load balancing.
+- **Secure HTTPS**: Secured with `AWS` and `certbot` for HTTPS encryption, ensuring user privacy and data integrity.
 
 ## Prerequisites
 

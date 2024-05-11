@@ -14,8 +14,8 @@ task :deploy => :remote_environment do
   command 'docker compose build'
   command 'docker compose down'
   command 'docker compose up -d'
+  command 'docker compose run web rake db:migrate'
 
   # Clean up unused Docker resources
-  command 'docker compose run web rake db:migrate'
   command 'docker system prune -f'
 end
