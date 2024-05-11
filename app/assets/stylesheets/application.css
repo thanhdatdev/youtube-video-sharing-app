@@ -89,7 +89,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;https://dat.mktsoft.vip/
+  gap: 20px;
+  https: ; //dat.mktsoft.vip/
 }
 
 .main {
@@ -159,4 +160,18 @@
 
 .share-movie-button:hover {
   background-color: #45a049;
+}
+
+/* Vote */
+.like-button {
+  background-color: #4caf50; /* green */
+}
+
+.dislike-button {
+  background-color: #f44336; /* red */
+}
+
+.like-button:not(.voted),
+.dislike-button:not(.voted) {
+  background-color: transparent; /* no color */
 }

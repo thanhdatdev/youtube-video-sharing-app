@@ -9,8 +9,10 @@
         <h2>Movie Title</h2>
         <p>Shared by: <%= movie&.user&.email %></p>
         <div class="like-dislike">
-            <button class="active">Like</button>
-            <button>Dislike</button>
+            <%= link_to 'Like', movie_votes_path(movie_id: movie.id, value: 'like'), data: { turbo_method: :post }, class: "like-button #{'voted' if user_voted?(movie, 'like')}" %>
+            <%= movie.votes.where(kind: 'like').count %> Likes
+            <%= link_to 'Dislike', movie_votes_path(movie_id: movie.id, value: 'dislike'), data: { turbo_method: :post }, class: "dislike-button #{'voted' if user_voted?(movie, 'dislike')}" %>
+            <%= movie.votes.where(kind: 'dislike').count %> Dislikes
         </div>
         <p>Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla convallis libero in justo fermentum, vitae vestibulum nunc volutpat.</p>
       </div>

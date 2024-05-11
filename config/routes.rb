@@ -10,5 +10,7 @@ Rails.application.routes.draw do
   post 'signup', to: "home#create"
   delete 'logout', to: "home#destroy"
 
-  resources 'movies'
+  resources 'movies' do
+    resources 'votes', only: [:create, :destroy]
+  end
 end
