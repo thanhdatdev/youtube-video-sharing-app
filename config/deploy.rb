@@ -7,6 +7,10 @@ require 'mina/logs'
 set :user, 'ubuntu'
 set :domain, '18.141.12.245'
 
+task :remote_environment do
+  # Set the path to the application
+end
+
 # Deployment task
 task :deploy => :remote_environment do
   command 'cd /home/ubuntu/youtube-video-sharing-app'
