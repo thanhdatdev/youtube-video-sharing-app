@@ -4,6 +4,15 @@
 
 Welcome to our YouTube Video Sharing App! Our platform allows users to easily share any YouTube video with others, fostering a community of shared interests and entertainment.
 
+### Live Demo:
+
+- Access our live demo [here](https://dat.mktsoft.vip).
+
+### Account Demo:
+
+- Email: `admin@gmail.com`
+- Password: `abcd1234!`
+
 ## Key Features:
 
 - **Effortless Sharing**: Share your favorite YouTube videos with just a few clicks.
