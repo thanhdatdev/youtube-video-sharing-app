@@ -99,4 +99,5 @@ If your Postgresql container default user is set to `root` instead of `postgres`
 #### Solution:
 
 1. Access the Postgresql container using the command: `docker exec -it <<postgres-container-id>> bash`
-2. Once inside the container, execute the following command to create a new user with the appropriate privileges: `CREATE ROLE postgres WITH LOGIN SUPERUSER PASSWORD 'postgres';`
+2. Once inside the container, access the Postgresql database as the `root` user: `psql -U root;`
+3. Execute the following command to create a new user with the appropriate privileges: `CREATE ROLE postgres WITH LOGIN SUPERUSER PASSWORD 'postgres';`
